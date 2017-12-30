@@ -7,10 +7,12 @@ var mongoose = require("mongoose");
 var cheerio = require("cheerio");
 var request = require("request");
 
+var PORT = process.env.PORT || 8080;
+
 // Requiring the Comment and Article models
 var db = require("./models");
 
-var PORT = process.env.PORT || 8080;
+
 //Initialize express
 var app = express();
 
