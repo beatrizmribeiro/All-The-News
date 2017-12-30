@@ -19,16 +19,15 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static("public"));
 
 // Database Configuration with Mongoose
+// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+
+// Set mongoose to leverage built in JavaScript ES6 Promises
+// Connect to the Mongo DB
 mongoose.Promise = Promise;
-var localDatabaseUri = "mongodb://localhost/NewsBBCNewsArticles";
-
-if (process.env.MONGODB_URI) {
-    mongoose.connect(process.env.MONGODB_URI);
-}
-else {
-    mongoose.connect(localDatabaseUri, {useMongoClient: true});
-}
-
+mongoose.connect(MONGODB_URI, {
+  useMongoClient: true
+});
 
 //Routes
 
