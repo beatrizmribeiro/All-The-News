@@ -1,13 +1,15 @@
 var express = require("express");
-// var exphbs  = require('express-handlebars');
-var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
+var bodyParser = require("body-parser");
 
 // Scraping tools
 var cheerio = require("cheerio");
 var request = require("request");
 
 var PORT = process.env.PORT || 8080;
+
+//Initialize express
+var app = express();
 
 // Requiring the Comment and Article models
 var db = require("./models");
