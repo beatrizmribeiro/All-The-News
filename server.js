@@ -10,7 +10,7 @@ var request = require("request");
 // Requiring the Comment and Article models
 var db = require("./models");
 
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8080;
 //Initialize express
 var app = express();
 
